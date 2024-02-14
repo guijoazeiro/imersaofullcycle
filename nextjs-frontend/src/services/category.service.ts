@@ -6,7 +6,7 @@ export class CategoryService {
       next: {
         revalidate: 1,
       },
-    }); //revalidate on demand
+    });
     return response.json();
   }
 }

@@ -7,11 +7,10 @@ import Image from "next/legacy/image";
 import { ProductService } from "../../../services/product.service";
 
 async function ProductDetailPage({
-  params
+  params,
 }: {
   params: { productId: string };
 }) {
-
   const product = await new ProductService().getProduct(params.productId);
 
   return (

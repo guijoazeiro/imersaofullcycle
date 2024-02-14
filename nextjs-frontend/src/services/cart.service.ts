@@ -27,7 +27,9 @@ export class CartService {
       this.cookieStore.set("cart", JSON.stringify({ items: [], total: 0 }));
     }
 
-    const cart: Cart = cartString ? JSON.parse(cartString) : { items: [], total: 0 };
+    const cart: Cart = cartString
+      ? JSON.parse(cartString)
+      : { items: [], total: 0 };
 
     const { product_id, quantity } = input;
 

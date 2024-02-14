@@ -13,9 +13,8 @@ import { Total } from "../../../components/Total";
 import { OrderServiceFactory } from "../../../services/order.service";
 
 async function MyOrderDetail({ params }: { params: { orderId: string } }) {
-
   const order = await OrderServiceFactory.create().getOrder(params.orderId);
-  
+
   return (
     <Box>
       <Grid2 container spacing={2}>

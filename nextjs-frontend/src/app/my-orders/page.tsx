@@ -12,8 +12,6 @@ import Link from "next/link";
 import { OrderStatus } from "../../models";
 import { OrderServiceFactory } from "../../services/order.service";
 
-
-
 export async function MyOrdersListPage() {
   const orders = await OrderServiceFactory.create().getOrders();
   return (

@@ -25,7 +25,7 @@ export class AuthService {
     const data = await response.json();
 
     const cookieStore = cookies();
-    //cookie criptografado
+    
     cookieStore.set("token", data.access_token);
   }
 

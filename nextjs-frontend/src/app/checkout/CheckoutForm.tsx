@@ -8,9 +8,8 @@ import { checkoutAction } from "../../server-actions/checkout.action";
 export function CheckoutForm() {
   return (
     <Box
-      component={'form'}
+      component={"form"}
       action={async (formData: FormData) => {
-        //logica para gerar o card hash
         formData.set("card_hash", "123");
         await checkoutAction(formData);
       }}

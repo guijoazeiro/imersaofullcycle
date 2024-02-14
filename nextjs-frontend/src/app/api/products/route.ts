@@ -10,6 +10,3 @@ export async function GET(request: NextRequest){
     const products = await productService.getProducts({search, category_id});
     return NextResponse.json(products);
 }
-
-//cache do fetch para a api do wesley (catalogo)
-//cache do fetch para minha propria api

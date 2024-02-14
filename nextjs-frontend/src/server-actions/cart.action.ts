@@ -14,8 +14,6 @@ export type Cart = {
   total: number;
 };
 
-//product_id
-//quantity
 export async function addToCartAction(formData: FormData) {
   const cartService = CartServiceFactory.create();
   await cartService.addToCart({
@@ -25,10 +23,9 @@ export async function addToCartAction(formData: FormData) {
   redirect("/my-cart");
 }
 
-export async function removeItemFromCartAction(formData: FormData){
+export async function removeItemFromCartAction(formData: FormData) {
   const cartService = CartServiceFactory.create();
-  const index = parseInt(formData.get('index') as string)
+  const index = parseInt(formData.get("index") as string);
   cartService.removeItemFromCart(index);
 }
 
-//mutations

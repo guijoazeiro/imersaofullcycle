@@ -46,6 +46,7 @@ export class OrdersService {
       card_hash: createOrderDto.card_hash,
       total: order.total,
     });
+    //publish diretamente numa fila
     return order;
   }
 
@@ -65,5 +66,29 @@ export class OrdersService {
       id,
       client_id,
     });
+  }
+
+  async pay(id: string) {
+    const order = await this.orderRepo.findOneByOrFail({
+      id,
+    });
+
+    order.pay();
+
+    await this.orderRepo.save(order);
+
+    return order;
+  }
+
+  async fail(id: string) {
+    const order = await this.orderRepo.findOneByOrFail({
+      id,
+    });
+
+    order.fail();
+
+    await this.orderRepo.save(order);
+
+    return order;
   }
 }

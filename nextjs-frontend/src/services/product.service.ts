@@ -18,7 +18,7 @@ export class ProductService {
       next: {
         revalidate: 1,
       },
-    }); //revalidate on demand
+    });
     let data = await response.json();
     data = !data ? [] : data;
     if (search) {
@@ -52,7 +52,7 @@ export class ProductService {
           revalidate: 1,
         },
       }
-    ); //revalidate on demand
+    ); 
     return response.json();
   }
 }
