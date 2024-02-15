@@ -18,9 +18,10 @@ export class OrderConsumer {
   @RabbitSubscribe({
     exchange: 'amq.direct',
     routingKey: 'PaymentDone',
-    queue: 'micro-orders',
+    queue: 'payments',
   })
   async consume(msg: { order_id: string; status: OrderStatus }) {
+    console.log('Message:', msg);
     try {
       if (msg.status === OrderStatus.PAID) {
         await this.orderService.pay(msg.order_id);
@@ -39,7 +40,6 @@ export class OrderConsumer {
         });
         return new Nack(false);
       }
-      //logica para contar quantas vezes uma mensagem foi consumida
       return new Nack(true);
     }
   }
